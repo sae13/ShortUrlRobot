@@ -32,7 +32,7 @@ def unknown(bot, update):
     bot.sendMessage(chat_id=update.message.chat_id, text="Unknown Command!")
 
 
-updater = Updater(token='YOUR TOKEN HERE')
+updater = Updater(token=myBotFatherToken)
 dispatcher = updater.dispatcher
 
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO)
@@ -45,7 +45,7 @@ dispatcher.add_handler(cm_handler)
 
 unknown_handler = MessageHandler([Filters.command], unknown)
 dispatcher.add_handler(unknown_handler)
-
+print(myBotFatherToken)
 updater.start_polling()
 updater.idle()
 updater.stop()
