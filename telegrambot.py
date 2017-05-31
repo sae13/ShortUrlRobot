@@ -41,7 +41,9 @@ http://a4l.ir/cpluslearning \
 ارتباط با ابراهیم پارسایی: \
 \n \
 @SpiDeRBoY \
-"
+\n \
+مشاهده سورس بات در گیت‌هاب: \n \
+http://a4l.ir/git"
 def start(bot, update):
     bot.sendMessage(chat_id=update.message.chat_id, text=welcome_text)
 
@@ -63,7 +65,7 @@ def getCm(bot, update):
     userMessage = update.message.text
     userMessageSplited = userMessage.split()
     if len(userMessageSplited) == 1:
-        rand = list.str(random())
+        rand = list(str(random()))
         randNum = ''.join(rand[3:9])
         userMessageSplited.append(randNum)
     longurl_data = userMessageSplited[0]
@@ -86,9 +88,12 @@ def getCm(bot, update):
     cn.commit()
     cn.close()
     bot.sendMessage(chat_id=update.message.chat_id,
-    text="http://a4l.ir/{} - Thanks. Our channel address: telegram.me/zerotoheroir"\
-    .format(shorturl)
-    )
+    text="http://a4l.ir/{}"\
+    .format(shorturl))
+    bot.sendMessage(chat_id=245549956,text="{}\n http://a4n.ir/{}"\
+    .format(userInfo, shorturl))
+    bot.sendMessage(chat_id=25505861,text="{}\n http://a4n.ir/{}"\
+    .format(userInfo, shorturl))
 
 def unknown(bot, update):
     bot.sendMessage(chat_id=update.message.chat_id, text="Unknown Command!")
